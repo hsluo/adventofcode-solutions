@@ -14,7 +14,7 @@ func main() {
 	for i := range input {
 		if input[i] == '(' {
 			result++
-		} else {
+		} else if input[i] == ')' {
 			result--
 			if result < 0 && index == 0 {
 				index = i + 1

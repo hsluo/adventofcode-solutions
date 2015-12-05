@@ -8,16 +8,24 @@ import (
 
 func main() {
 	input := "bgvyzdsv"
-	for i := 0; ; i++ {
-		if hash(input, i) {
-			fmt.Println(i)
-			break
+	i := 0
+	i = find(i, input, "00000")
+	fmt.Println(i)
+	i = find(i, input, "000000")
+	fmt.Println(i)
+}
+
+func find(start int, input, prefix string) int {
+	for {
+		h := hash(input, start)
+		if strings.HasPrefix(h, prefix) {
+			return start
 		}
+		start++
 	}
 }
 
-func hash(input string, number int) bool {
+func hash(input string, number int) string {
 	data := []byte(fmt.Sprintf("%s%d", input, number))
-	h := fmt.Sprintf("%x", md5.Sum(data))
-	return strings.HasPrefix(h, "00000")
+	return fmt.Sprintf("%x", md5.Sum(data))
 }

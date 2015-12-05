@@ -2,11 +2,20 @@ package main
 
 import "testing"
 
-func TestCalc(t *testing.T) {
-	if calc("2x3x4") != 58 {
+func TestWrap(t *testing.T) {
+	if wrap([]int{2, 3, 4}) != 58 {
 		t.Fail()
 	}
-	if calc("1x1x10") != 43 {
+	if wrap([]int{1, 1, 10}) != 43 {
+		t.Fail()
+	}
+}
+
+func TestRibbon(t *testing.T) {
+	if ribbon([]int{2, 3, 4}) != 34 {
+		t.Fail()
+	}
+	if ribbon([]int{1, 1, 10}) != 14 {
 		t.Fail()
 	}
 }
